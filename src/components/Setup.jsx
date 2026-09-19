@@ -1,6 +1,8 @@
-﻿import React from "react";
+import React, { useState } from "react";
 
 const Setup = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
   return (
     <section id="setup">
       <div className="section-header">
@@ -43,10 +45,108 @@ const Setup = () => {
           </div>
         </div>
 
+        {/* ── BGMI 4-Finger Claw Controls Layout ── */}
+        <div className="section-header" style={{ marginTop: "3.5rem" }}>
+          <p className="section-eyebrow">Battleground HUD Setup</p>
+          <h3 className="section-title" style={{ fontSize: "2rem" }}>
+            4-Finger Claw <span>Controls Layout</span>
+          </h3>
+          <div className="section-divider" />
+        </div>
+
+        <div className="controls-showcase">
+          <div className="controls-header-bar">
+            <div className="controls-tag-badge">
+              <span className="dot-live" /> Classic Mode TPP · Layout 1
+            </div>
+            <div className="controls-claw-badge">
+              🖐️ 4-Finger Claw · Master HUD
+            </div>
+          </div>
+
+          <div
+            className="controls-img-wrap"
+            onClick={() => setLightboxOpen(true)}
+            title="Click to zoom controls layout"
+          >
+            <img
+              src="/images/controls.jpg"
+              alt="SLAYDEVIL BGMI 4-Finger Claw Controls HUD Layout"
+              className="controls-img"
+              loading="lazy"
+            />
+            <div className="controls-overlay-hint">
+              <span>🔍 Click to View Fullscreen / Enlarge HUD</span>
+            </div>
+          </div>
+
+          <div className="controls-breakdown-grid">
+            <div className="cb-card left-hand">
+              <div className="cb-icon">👈</div>
+              <div>
+                <h4>Left Hand (Movement & Fire)</h4>
+                <ul>
+                  <li><strong>Index Finger:</strong> Primary Left Fire Button (Top-Left)</li>
+                  <li><strong>Thumb:</strong> Joystick, Sprint Lock, Backpack & Meds</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="cb-card right-hand">
+              <div className="cb-icon">👉</div>
+              <div>
+                <h4>Right Hand (Aim, ADS & Action)</h4>
+                <ul>
+                  <li><strong>Index Finger:</strong> Scope (ADS), Left/Right Lean (Peek)</li>
+                  <li><strong>Thumb:</strong> Crouch, Prone, Jump, Reload & FPP Switch</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="cb-card gyro-card">
+              <div className="cb-icon">⚡</div>
+              <div>
+                <h4>Full Gyroscope Integration</h4>
+                <p>
+                  300% Always On Gyro for instant target tracking, lightning recoil control, and seamless 1v4 spray transfers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Controls Lightbox Modal */}
+        {lightboxOpen && (
+          <div className="controls-modal-backdrop" onClick={() => setLightboxOpen(false)}>
+            <div className="controls-modal-content" onClick={(e) => e.stopPropagation()}>
+              <button
+                className="controls-modal-close"
+                onClick={() => setLightboxOpen(false)}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+              <div className="controls-modal-header">
+                <h3>🎮 BGMI Controls Layout (Classic Mode TPP - Layout 1)</h3>
+                <p>4-Finger Claw Setup by SLAYDEVIL</p>
+              </div>
+              <div className="controls-modal-img-wrap">
+                <img
+                  src="/images/controls.jpg"
+                  alt="SLAYDEVIL BGMI Controls Fullscreen"
+                  className="controls-modal-img"
+                />
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Sensitivity Screenshots */}
-        <div className="section-header">
+        <div className="section-header" style={{ marginTop: "4rem" }}>
           <p className="section-eyebrow">In-Game Configuration</p>
-          <h3 className="section-title" style={{fontSize:"2rem"}}>Sensitivity <span>Settings</span></h3>
+          <h3 className="section-title" style={{ fontSize: "2rem" }}>
+            Sensitivity <span>Settings</span>
+          </h3>
           <div className="section-divider" />
         </div>
 
