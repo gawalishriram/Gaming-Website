@@ -1,8 +1,17 @@
 import React, { useState } from "react";
 
+const BGMI_ID = "5320842209";
+
 const Setup = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedSens, setSelectedSens] = useState(null);
+  const [copiedId, setCopiedId] = useState(false);
+
+  const handleCopyId = () => {
+    navigator.clipboard.writeText(BGMI_ID);
+    setCopiedId(true);
+    setTimeout(() => setCopiedId(false), 2200);
+  };
 
   return (
     <section id="setup">
@@ -24,6 +33,21 @@ const Setup = () => {
                 <span>SLAY シ DEVIL</span>
               </div>
               <span className="profile-rank">⭐ Unique Destiny</span>
+            </div>
+
+            {/* BGMI Character ID Badge & Copy Action */}
+            <div className="profile-id-box">
+              <div className="pid-info">
+                <span className="pid-label">🎮 BGMI Character ID</span>
+                <span className="pid-number">{BGMI_ID}</span>
+              </div>
+              <button
+                className={`pid-copy-btn ${copiedId ? "pid-copy-btn--copied" : ""}`}
+                onClick={handleCopyId}
+                title="Copy BGMI ID to send friend request"
+              >
+                {copiedId ? "✅ ID Copied!" : "📋 Copy ID"}
+              </button>
             </div>
             <div className="profile-stats">
               <div className="pstat">

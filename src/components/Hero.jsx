@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React, { useState } from "react";
 
 const particles = Array.from({ length: 18 }, (_, i) => ({
   left: `${Math.random() * 100}%`,
@@ -8,7 +8,17 @@ const particles = Array.from({ length: 18 }, (_, i) => ({
   size: `${2 + Math.random() * 4}px`,
 }));
 
+const BGMI_ID = "5320842209";
+
 const Hero = () => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyId = () => {
+    navigator.clipboard.writeText(BGMI_ID);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2200);
+  };
+
   return (
     <section id="home" className="hero">
       {/* Floating Particles */}
@@ -41,13 +51,27 @@ const Hero = () => {
         Level 76 &nbsp;·&nbsp; Unique Destiny &nbsp;·&nbsp; Conqueror &nbsp;·&nbsp; 4-Finger Claw
       </p>
 
+      {/* BGMI Character ID Badge & Copy Action */}
+      <div className="hero-bgmi-id-card">
+        <span className="hbi-label">🎮 BGMI ID:</span>
+        <span className="hbi-num">{BGMI_ID}</span>
+        <button
+          className={`hbi-copy-btn ${copied ? "hbi-copy-btn--copied" : ""}`}
+          onClick={handleCopyId}
+          title="Click to copy BGMI ID for friend request"
+        >
+          {copied ? "✅ ID Copied!" : "📋 Copy ID"}
+        </button>
+      </div>
+
       <p className="hero-desc">
-        Welcome to the official hub. Watch intense BGMI gameplay, copy the pro sensitivity setup, and follow the journey on YouTube & Instagram.
+        Welcome to the official hub. Send a friend request in BGMI, watch intense gameplay, copy the pro sensitivity setup, and follow on socials.
       </p>
 
       <div className="hero-btns">
         <a href="#videos"    className="btn-primary">🎬 Watch Gameplay</a>
-        <a href="#instagram" className="btn-outline">📸 Follow on Instagram</a>
+        <a href="#setup"     className="btn-outline">⚙️ View Controls & Sens</a>
+        <a href="#instagram" className="btn-outline">📸 Instagram Reels</a>
       </div>
 
       <div className="scroll-hint">Scroll Down</div>
