@@ -650,17 +650,131 @@ section { padding: 90px 6%; position: relative; z-index: 1; }
   border-radius: 6px;
 }
 
+.sens-hint-text {
+  text-align: center;
+  font-family: var(--font-sub);
+  font-size: 0.88rem;
+  color: var(--accent-cyan);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
 .sens-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-.sens-card { background: var(--bg-card); border: var(--border-card); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer; }
-.sens-card:hover { transform: translateY(-6px); border-color: var(--accent-gold); box-shadow: 0 12px 40px rgba(245,166,35,0.2); }
-.sens-card img { width: 100%; aspect-ratio: 16/9; object-fit: cover; transition: transform 0.4s ease; }
-.sens-card:hover img { transform: scale(1.03); }
+
+.sens-card {
+  background: var(--bg-card);
+  border: var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.sens-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 12px 40px rgba(245,166,35,0.22);
+}
+
+.sens-img-wrap {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.sens-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.sens-card:hover img {
+  transform: scale(1.03);
+}
+
+.sens-overlay-hint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sens-card:hover .sens-overlay-hint {
+  opacity: 1;
+}
+
+.sens-overlay-hint span {
+  background: rgba(17, 17, 34, 0.9);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-family: var(--font-sub);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
 .sens-card-footer { padding: 1rem 1.2rem; display: flex; align-items: center; justify-content: space-between; }
 .sens-card-label { font-family: var(--font-sub); font-size: 0.9rem; font-weight: 700; color: #fff; letter-spacing: 0.5px; }
 .sens-badge { font-size: 0.7rem; padding: 3px 10px; border-radius: 20px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
 .sens-badge.gyro { background: rgba(0,229,255,0.1); border: 1px solid rgba(0,229,255,0.4); color: var(--accent-cyan); }
 .sens-badge.lens { background: rgba(155,54,234,0.1); border: 1px solid rgba(155,54,234,0.4); color: var(--accent-purple); }
 .sens-badge.cam { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.4); color: var(--accent-gold); }
+
+/* Quick Sensitivity Summary */
+.sens-quick-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.sq-card {
+  background: rgba(13, 13, 24, 0.7);
+  border: 1px solid rgba(155, 54, 234, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.sq-card:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.sq-icon { font-size: 1.6rem; display: block; margin-bottom: 0.4rem; }
+
+.sq-card h4 {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.sq-val {
+  font-family: var(--font-sub);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  margin-bottom: 0.4rem;
+}
+
+.sq-card p {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
 
 /* ============================================
    TIPS
@@ -1733,6 +1847,7 @@ section { padding: 90px 6%; position: relative; z-index: 1; }
 @media (max-width: 1024px) {
   .ig-reels-grid { grid-template-columns: repeat(3, 1fr); }
   .controls-breakdown-grid { grid-template-columns: repeat(2, 1fr); }
+  .sens-quick-summary { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .ig-profile-banner {
@@ -1755,6 +1870,7 @@ section { padding: 90px 6%; position: relative; z-index: 1; }
   }
   .controls-showcase { padding: 1.2rem; }
   .controls-breakdown-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .sens-quick-summary { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
   .reel-player-card { padding: 0.8rem; }
   .reel-meta-overlay { padding: 1rem; }
   .imr-cta-btn {
@@ -1773,6 +1889,7 @@ section { padding: 90px 6%; position: relative; z-index: 1; }
   }
   .ig-reels-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
   .ig-profile-stats { gap: 0.8rem; }
+  .sens-quick-summary { grid-template-columns: 1fr; gap: 0.8rem; }
   .imr-cta-btn {
     font-size: 0.72rem;
     letter-spacing: 0.6px;
