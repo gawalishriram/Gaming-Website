@@ -1,4 +1,5 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
+import { FaYoutube, FaPlay } from "react-icons/fa";
 
 const YT_CHANNEL = "https://www.youtube.com/@slaydevil80";
 
@@ -96,7 +97,7 @@ const Videos = () => {
               }}
             >
               <div className="vtp-overlay">
-                <div className="vtp-play-btn">▶</div>
+                <div className="vtp-play-btn"><FaPlay /></div>
                 <p className="vtp-hint">Click to Play</p>
               </div>
             </div>
@@ -185,7 +186,7 @@ const Videos = () => {
             rel="noopener noreferrer"
             className="yt-subscribe-btn"
           >
-            <span>▶</span> View Full Channel & Subscribe
+            <span><FaYoutube /></span> View Full Channel & Subscribe
           </a>
         </div>
 

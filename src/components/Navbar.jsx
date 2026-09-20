@@ -1,4 +1,5 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { FaHome, FaGamepad, FaCog, FaLightbulb, FaInstagram, FaLink, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,12 +31,12 @@ const Navbar = () => {
       </nav>
 
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
-        <a href="#home"      onClick={closeMenu}>🏠 Home</a>
-        <a href="#videos"   onClick={closeMenu}>🎮 Gameplay</a>
-        <a href="#setup"    onClick={closeMenu}>⚙️ Setup</a>
-        <a href="#tips"     onClick={closeMenu}>💡 Tips</a>
-        <a href="#instagram"onClick={closeMenu}>📸 Instagram</a>
-        <a href="#socials"  onClick={closeMenu}>🔗 Socials</a>
+        <a href="#home"      onClick={closeMenu}><FaHome /> Home</a>
+        <a href="#videos"   onClick={closeMenu}><FaGamepad /> Gameplay</a>
+        <a href="#setup"    onClick={closeMenu}><FaCog /> Setup</a>
+        <a href="#tips"     onClick={closeMenu}><FaLightbulb /> Tips</a>
+        <a href="#instagram"onClick={closeMenu}><FaInstagram /> Instagram</a>
+        <a href="#socials"  onClick={closeMenu}><FaLink /> Socials</a>
       </div>
     </>
   );

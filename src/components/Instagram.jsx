@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaInstagram, FaPlay, FaEye } from "react-icons/fa";
 
 const IG_HANDLE = "ig_slaydevil_07";
 const IG_PROFILE_URL = "https://www.instagram.com/ig_slaydevil_07/";
@@ -73,7 +74,7 @@ const Instagram = () => {
     <section id="instagram" className="ig-section">
       <div className="section-header">
         <p className="section-eyebrow">Watch Reels & Follow</p>
-        <h2 className="section-title">📸 <span>Instagram Reels</span></h2>
+        <h2 className="section-title"><FaInstagram /> <span>Instagram Reels</span></h2>
         <div className="section-divider" />
       </div>
 
@@ -149,7 +150,7 @@ const Instagram = () => {
                 }}
               >
                 <div className="reel-overlay">
-                  <div className="reel-play-icon">▶</div>
+                  <div className="reel-play-icon"><FaPlay /></div>
                   <p className="reel-tap-hint">Tap to Play Reel</p>
                 </div>
               </div>
@@ -168,7 +169,7 @@ const Instagram = () => {
                 rel="noopener noreferrer"
                 className="reel-ig-direct-btn"
               >
-                <span>📸</span> Open in Instagram Reels ↗
+                <span><FaInstagram /></span> Open in Instagram Reels ↗
               </a>
             </div>
           </div>
@@ -204,7 +205,7 @@ const Instagram = () => {
                   <div className="ig-reel-play-btn">
                     {isCurrent && isPlaying ? "⏸ PLAYING" : "▶ WATCH"}
                   </div>
-                  <span className="ig-reel-views">👁️ {r.views}</span>
+                  <span className="ig-reel-views"><FaEye /> {r.views}</span>
                 </div>
               </div>
               <div className="ig-reel-info">
@@ -241,7 +242,7 @@ const Instagram = () => {
             rel="noopener noreferrer"
             className="imr-cta-btn imr-cta-pulse"
           >
-            <span className="imr-btn-icon">📸</span>
+            <span className="imr-btn-icon"><FaInstagram /></span>
             Follow @{IG_HANDLE} on Instagram ↗
           </a>
         </div>

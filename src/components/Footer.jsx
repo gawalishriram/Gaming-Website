@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { FaInstagram, FaYoutube, FaDiscord } from "react-icons/fa";
+
 const BGMI_ID = "5320842209";
 
 const Footer = () => {
@@ -37,7 +39,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="social-icon">📸</span>
+            <span className="social-icon"><FaInstagram /></span>
             @ig_slaydevil_07
           </a>
           <a
@@ -46,7 +48,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="social-icon">▶</span>
+            <span className="social-icon"><FaYoutube /></span>
             @slaydevil80
           </a>
           <a
@@ -55,7 +57,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span className="social-icon">🎮</span>
+            <span className="social-icon"><FaDiscord /></span>
             Slay Army
           </a>
         </div>

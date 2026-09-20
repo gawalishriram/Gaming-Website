@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaPlayCircle, FaCog, FaInstagram } from "react-icons/fa";
 
 const particles = Array.from({ length: 18 }, (_, i) => ({
   left: `${Math.random() * 100}%`,
@@ -69,9 +70,9 @@ const Hero = () => {
       </p>
 
       <div className="hero-btns">
-        <a href="#videos"    className="btn-primary">🎬 Watch Gameplay</a>
-        <a href="#setup"     className="btn-outline">⚙️ View Controls & Sens</a>
-        <a href="#instagram" className="btn-outline">📸 Instagram Reels</a>
+        <a href="#videos"    className="btn-primary"><FaPlayCircle /> Watch Gameplay</a>
+        <a href="#setup"     className="btn-outline"><FaCog /> View Controls & Sens</a>
+        <a href="#instagram" className="btn-outline"><FaInstagram /> Instagram Reels</a>
       </div>
 
       <div className="scroll-hint">Scroll Down</div>
