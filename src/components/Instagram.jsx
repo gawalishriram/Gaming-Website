@@ -219,23 +219,30 @@ const Instagram = () => {
         })}
       </div>
 
-      {/* ── Prominent "Want More Reels? Redirect to Instagram" Banner ── */}
+      {/* ── Follower Growth & Social Proof Banner ── */}
       <div className="ig-more-reels-banner">
         <div className="imr-glow" />
         <div className="imr-content">
-          <div className="imr-badge">🔥 130+ REELS AVAILABLE</div>
-          <h3>Want to Watch More BGMI Reels?</h3>
+          <div className="imr-badge">🔥 JOIN THE SLAY ARMY</div>
+          <h3>Level Up Your BGMI Gameplay!</h3>
           <p>
-            Catch daily 1v4 clutches, gyroscope tips, squad wipes & behind-the-scenes clips posted regularly on Instagram!
+            Join 300+ followers for daily 1v4 clutches, gyroscope masterclasses, squad wipes & exclusive behind-the-scenes content!
           </p>
+          
+          <div className="imr-hooks">
+            <div className="imr-hook-item">🎯 Daily Clutches</div>
+            <div className="imr-hook-item">🌪️ Gyro Tips</div>
+            <div className="imr-hook-item">🎮 Claw Setup</div>
+          </div>
+
           <a
-            href={IG_REELS_URL}
+            href={IG_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="imr-cta-btn"
+            className="imr-cta-btn imr-cta-pulse"
           >
             <span className="imr-btn-icon">📸</span>
-            Watch More Reels on Instagram (@{IG_HANDLE}) ↗
+            Follow @{IG_HANDLE} on Instagram ↗
           </a>
         </div>
       </div>

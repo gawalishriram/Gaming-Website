@@ -1974,6 +1974,36 @@ section { padding: 90px 6%; position: relative; z-index: 1; }
   line-height: 1.5;
 }
 
+.imr-hooks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2rem;
+}
+
+.imr-hook-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-family: var(--font-sub);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.imr-cta-pulse {
+  animation: pulseCta 2s infinite;
+}
+
+@keyframes pulseCta {
+  0% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(220, 39, 67, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); }
+}
+
 .imr-cta-btn {
   display: inline-flex;
   align-items: center;
